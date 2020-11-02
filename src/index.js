@@ -17,11 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   tableBody.addEventListener('click', (event)=>{
       if(event.target.className ==='button' ){
-          EditButton(event)
+          handleEditButton(event)
       }
   })
 
-  const EditButton = (event) =>{
+  const handleEditButton = (event) =>{
       event.preventDefault()
      const dogId=event.target.parentElement.parentElement.dataset.id
      fetch(`http://localhost:3000/dogs/${dogId}`)
@@ -41,10 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   submitForm.addEventListener("submit", (event) => {
-              SubmitForm(event)
+              handleSubmitForm(event)
    })
   
-   const SubmitForm = (event) => {
+   const handleSubmitForm = (event) => {
        event.preventDefault()
        const name = document.querySelector("input[name='name']")
        const breed = document.querySelector("input[name='breed']").value
